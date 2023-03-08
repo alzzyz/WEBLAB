@@ -5,7 +5,7 @@ Dieses Projekt richtet sich an das vorgeschlagene WEBLAB-Projekt: Technologie Ra
 
 ## Front-End
 
-Run 'ng serve' in /tech-radar to start the web-server. You can customize the port and host-adress in the .env file
+Run `ng serve` in /tech-radar to start the web-server. You can customize the port and host-adress in the .env file
 
 ## Backend
 
