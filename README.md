@@ -9,5 +9,5 @@ Run `ng serve` in /tech-radar to start the web-server. You can customize the por
 
 ## Backend
 
-Run `npm run start` in /backend to start the api. Please import the provided .env file into the backend folder
+Run `npm run start` in /backend to start the api. KEEP IN MIND: Please import the provided .env file into the backend folder
 
