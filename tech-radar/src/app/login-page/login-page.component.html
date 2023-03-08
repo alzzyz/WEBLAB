@@ -1,0 +1,32 @@
+
+<mat-card class="login-card">
+    <mat-card-header>
+        <mat-card-title style="color: #fff">Login to Tech-Radar</mat-card-title>
+    </mat-card-header>
+    <form [formGroup]="form" (ngSubmit)="sendLogin()">
+        <mat-card-content class="flex-column">
+                <mat-form-field class="">
+                    <mat-label>Email</mat-label>
+                    <input type="email" formControlName="email" matInput placeholder="anna.bolika@hotmail.com">
+                    <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+                        The provided email address is invalid.
+                    </mat-error>
+                    <mat-error *ngIf="email.hasError('required')">
+                        You need to provide a email.
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Password</mat-label>
+                    <input formControlName="password" matInput [type]="passwordHideToggler ? 'password' : 'text'">
+                    <button mat-icon-button matSuffix (click)="passwordHideToggler = !passwordHideToggler" [attr.aria-pressed]="passwordHideToggler">
+                        <mat-icon>{{passwordHideToggler ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+    
+        </mat-card-content>
+        <mat-card-actions>
+            <button type="submit" mat-raised-button color="primary">LOGIN</button>
+        </mat-card-actions>
+    </form>
+</mat-card>

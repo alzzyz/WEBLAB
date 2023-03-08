@@ -1,0 +1,9 @@
+<mat-toolbar color="primary" *ngIf="isLoggedIn$ | async as isLoggedIn">
+    <span>Tech Radar</span>
+    <span class="navigation-spacer"></span>
+
+    <span><mat-icon style="line-height: inherit;">person</mat-icon>&nbsp;{{getCurrUsername()}}</span>
+    <button mat-icon-button (click)="onLogout()" *ngIf="isLoggedIn$ | async">
+        <mat-icon>logout</mat-icon>
+    </button>
+</mat-toolbar>

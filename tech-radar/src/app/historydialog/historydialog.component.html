@@ -1,0 +1,17 @@
+<div class="dialogue">
+  <h1 mat-dialog-title>Changes made:</h1>
+    <div mat-dialog-content class="mat-typography">
+      <mat-list *ngFor="let items of history.reverse()">
+          <mat-list-item>
+            <mat-icon matListItemIcon>history</mat-icon>
+            <span matListItemTitle> {{items.user}}</span>
+            <span matListItemLine>{{items.updatedAt | date: 'HH:mm:ss dd.MM.YYYY' }}</span>
+          </mat-list-item>
+        </mat-list>
+      
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button mat-dialog-close>Close</button>
+    </div>
+</div>
+  

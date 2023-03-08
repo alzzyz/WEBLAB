@@ -1,0 +1,57 @@
+<mat-card class="add-tech-card">
+    <mat-card-header>
+        <mat-card-title *ngIf="!isEditting">Add a technology</mat-card-title>
+        <mat-card-title *ngIf="isEditting">Edit technology</mat-card-title>
+    </mat-card-header>
+
+    <form class="add-tech-form" [formGroup]="form" (ngSubmit)="onSubmit()">  
+        <mat-card-content class="flex-column">
+            <mat-form-field class="">
+                <mat-label>Name</mat-label>
+                <input type="text" formControlName="name" matInput placeholder="ArgoCD">
+                <mat-error *ngIf="form.get('name')?.hasError('required')">
+                    You need to provide a name.
+                </mat-error>
+             </mat-form-field>
+
+             <mat-form-field class="">
+                <mat-label>Category</mat-label>
+                <mat-select formControlName="category">
+                    <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('category')?.hasError('required')">
+                    You need to provide a category
+                </mat-error>
+             </mat-form-field>
+
+             <mat-form-field class="">
+                <mat-label>Ring</mat-label>
+                <mat-select formControlName="ring">
+                    <mat-option *ngFor="let ring of rings" [value]="ring">{{ring}}</mat-option>
+                </mat-select>             
+             </mat-form-field>
+
+             <mat-form-field class="">
+                <mat-label>Description</mat-label>
+                <textarea formControlName="description" matInput placeholder="Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes."></textarea>
+                <mat-error *ngIf="form.get('description')?.hasError('required')">
+                    You need to provide a description.
+                </mat-error>
+             </mat-form-field>
+
+             <mat-form-field class="">
+                <mat-label>Description of classification</mat-label>
+                <textarea formControlName="descriptionClassification" matInput placeholder="Without making a judgment of the GitOps technique, we'd like to talk about Argo CD within the scope of deploying and monitoring applications in Kubernetes environments. Based on its ability to automate the deployment of the desired application state in the specified target environments in Kubernetes and our good experience with troubleshooting failed deployments, verifying logs and monitoring deployment status, we recommend you give Argo CD a try. You can even see graphically what is going on in the cluster, how a change is propagated and how pods are created and destroyed in real time."></textarea>
+                
+             </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <button class="small-margin" type="submit" mat-raised-button color="primary" *ngIf="!isEditting">Add</button>
+            <button class="small-margin" type="submit" mat-raised-button color="primary" *ngIf="isEditting">Edit</button>
+            
+            <button type="button" *ngIf="isEditting" class="small-margin" (click)="showHistory()" mat-raised-button>View History</button>
+
+            <button type="button" class="small-margin" mat-raised-button routerLink="/">Return</button>
+        </mat-card-actions>
+    </form>
+</mat-card>
