@@ -23,7 +23,7 @@ exports.create = (req, res) => {
         createdAt: Date.now(),
         createdBy: req.userName
     });
-        .then(data => {
+        techModel.save(techEntry).then(data => {
             
             res.status(200).send({message: "success"});
         })
